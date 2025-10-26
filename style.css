@@ -1,0 +1,303 @@
+@import url("//fonts.googleapis.com/css?family=Pacifico&text=can you");
+@import url("//fonts.googleapis.com/css?family=Roboto:700&text=Guess");
+@import url("//fonts.googleapis.com/css?family=Kaushan+Script&text=?");
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Open+Sans:wght@400;700&family=Poppins:wght@400;600;700&display=swap');
+
+body {
+  min-height: 450px;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, #0077ea, #1f4f96, #1b2949, #000);
+}
+
+.stage {
+    height: 100px;
+  width: 100px;
+  position: absolute;
+  top: 60px;    /* small margin from top */
+  left: 100px;   /* small margin from left */
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.layer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 30px;  /* Fixed: Added px unit */
+  transform-style: preserve-3d;
+  animation: tilt 5s infinite alternate ease-in-out;
+}
+
+.layer::after {
+  content: "Can you\a    guess?";
+  white-space: pre;
+  position: absolute;
+  font: 60px/0.65 "Pacifico", "Kaushan Script", Futura, "Roboto", "Trebuchet MS", Helvetica, sans-serif;
+  color: whitesmoke;
+  letter-spacing: -2px;
+  text-shadow: 4px 0 10px rgba(0, 0, 0, 0.13);
+  transform: translateZ(calc(-1.5px * var(--i)));
+}
+
+/* Layer depth using CSS variables */
+.layer:nth-child(n) {
+  --i: calc(var(--n) + 1);
+}
+.layer:nth-child(1) { --i: 0; }
+.layer:nth-child(2) { --i: 1; }
+.layer:nth-child(3) { --i: 2; }
+.layer:nth-child(4) { --i: 3; }
+.layer:nth-child(5) { --i: 4; }
+.layer:nth-child(6) { --i: 5; }
+.layer:nth-child(7) { --i: 6; }
+.layer:nth-child(8) { --i: 7; }
+.layer:nth-child(9) { --i: 8; }
+.layer:nth-child(10) { --i: 9; }
+.layer:nth-child(11) { --i: 10; }
+.layer:nth-child(12) { --i: 11; }
+.layer:nth-child(13) { --i: 12; }
+.layer:nth-child(14) { --i: 13; }
+.layer:nth-child(15) { --i: 14; }
+.layer:nth-child(16) { --i: 15; }
+.layer:nth-child(17) { --i: 16; }
+.layer:nth-child(18) { --i: 17; }
+.layer:nth-child(19) { --i: 18; }
+.layer:nth-child(20) { --i: 19; }
+
+/* Layer coloring and stroke effects */
+.layer:nth-child(n+10)::after {
+  -webkit-text-stroke: 3px rgba(0, 0, 0, 0.25);
+}
+
+.layer:nth-child(n+11)::after {
+  -webkit-text-stroke: 15px dodgerblue;
+  text-shadow: 6px 0 6px #00366b, 5px 5px 5px #002951, 0 6px 6px #00366b;
+}
+
+.layer:nth-child(n+12)::after {
+  -webkit-text-stroke: 15px #0077ea;
+}
+
+.layer:last-child::after {
+  -webkit-text-stroke: 17px rgba(0, 0, 0, 0.1);
+}
+
+.layer:first-child::after {
+  color: #fff;
+  text-shadow: none;
+}
+
+/* Animation */
+@keyframes tilt {
+  0% {
+    transform: rotateY(20deg) rotateX(15deg);
+  }
+  100% {
+    transform: rotateY(-10deg) rotateX(-5deg);
+  }
+}
+
+/* Ensure all animations run */
+*,
+*::before,
+*::after {
+  animation-play-state: running !important;
+}
+.container {
+  margin-top: 60px;
+  width: 60vw;
+  max-width: 600px; /* Added max-width for better layout on large screens */
+  padding: 20px;
+  /* Removed fixed height to prevent overflow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+ height:fit-content;
+}
+
+.container input {
+  padding: 15px;
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  width: 80%;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid #cfd8dc;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.container input:focus {
+  border-color: #0077ea;
+  box-shadow: 0 0 0 3px rgba(0, 119, 234, 0.2);
+}
+
+.container button {
+  background-color: #0077ea;
+  border: none;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 15px 10px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: all 0.3s ease;
+  width: 80%;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0, 119, 234, 0.4);
+}
+
+.container button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 119, 234, 0.5);
+}
+
+.container button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(0, 119, 234, 0.4);
+}
+
+h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #a8aed4;
+  margin: 10px 0 5px 0;
+  width: 80%;
+ text-shadow: 2px 2px 5px rgb(62, 66, 58);
+}
+
+h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #a8aed4;
+  margin: 15px 0 5px 0;
+  width: 80%;
+  text-shadow: 2px 2px 5px rgb(62, 66, 58);
+}
+
+#randomnumbox, #usernumbox {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0d47a1;
+  padding: 10px 15px;
+  background-color: #e3f2fd;
+  border-radius: 8px;
+  margin: 5px 0 8px 0;
+  width: 80%;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+}
+
+#result {
+  font-family: 'Lato', sans-serif;
+  font-style:italic;
+  font-size: 16px;
+  font-weight: 300;
+  color: #37474f;
+  margin: 20px 0;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+   background-color: #fffde7;
+   border-left: 5px solid #532dfb;
+  width: 80%;
+  box-shadow: 0 4px 15px rgba(0, 119, 234, 0.3);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+#hints {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  font-style: italic;
+  color: #37474f;
+  padding: 10px 15px;
+  background-color: #fffde7;
+  border-left: 5px solid #fbc02d;
+  border-radius: 5px;
+  margin: 10px 0;
+  width: 80%;
+  text-align: center;
+  min-height: 24px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+
+/* For tablets (<=1024px) */
+@media (max-width: 1024px) {
+  .stage {
+    top: 30px;
+    left: 40px;
+  }
+  .layer::after {
+    font-size: 55px;
+  }
+  .container {
+    width: 60vw;
+  }
+}
+
+/* For large phones (<=768px) */
+@media (max-width: 768px) {
+  .stage {
+    top: 25px;
+    left: 30px;
+    transform: scale(0.9);
+  }
+  .layer::after {
+    font-size: 45px;
+    letter-spacing: -1.5px;
+  }
+  .container {
+    background-color: none;
+    width: 80vw;
+    padding: 30px;
+  }
+  h3 { font-size: 20px; }
+  h4 { font-size: 16px; }
+}
+
+/* For small phones (<=480px) */
+@media (max-width: 480px) {
+ 
+  .stage {
+    top: 10px;
+    left: 10px;
+    transform: scale(0.8);
+  }
+  .layer::after {
+    font-size: 20px;
+    letter-spacing: -1px;
+  }
+  .container {
+    background-color: none;
+    margin-top:20px;
+    width: 90vw;
+    height: auto; /* Adjust height to auto for better content fit */
+    padding: 20px;
+  }
+  h3 { font-size: 18px; }
+  h4 { font-size: 15px; }
+}
