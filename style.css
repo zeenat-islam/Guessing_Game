@@ -272,8 +272,9 @@ h4 {
   }
   .container {
     background-color: none;
-    width: 50vw;
+    width: 80vw;
     padding: 30px;
+    margin-top:60px;
   }
   h3 { font-size: 20px; }
   h4 { font-size: 16px; }
@@ -302,3 +303,4 @@ h4 {
   h4 { font-size: 15px; }
 
 }
+
