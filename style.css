@@ -108,10 +108,10 @@ body {
   animation-play-state: running !important;
 }
 .container {
-  margin-top: 60px;
+  margin-top: 10px;
   width: 60vw;
   max-width: 600px; /* Added max-width for better layout on large screens */
-  padding: 20px;
+  padding: 10px;
   /* Removed fixed height to prevent overflow */
   display: flex;
   justify-content: center;
@@ -120,7 +120,9 @@ body {
   flex-wrap: wrap;
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
- height:fit-content;
+ height: auto;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 .container input {

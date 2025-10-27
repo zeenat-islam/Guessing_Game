@@ -19,7 +19,6 @@ searchBtn.addEventListener("click", () => {
   const guess = Number(userGuess);
 
   // Update HTML normally
-  randomNumBox.innerText = randomNum;
   userNumBox.innerText = guess;
 
   let diff = Math.abs(guess - randomNum);
