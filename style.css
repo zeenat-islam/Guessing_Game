@@ -109,8 +109,8 @@ body {
 }
 .container {
   margin-top: 10px;
-  width: 60vw;
-  max-width: 600px; /* Added max-width for better layout on large screens */
+  width: 50%;
+  /* Added max-width for better layout on large screens */
   padding: 10px;
   /* Removed fixed height to prevent overflow */
   display: flex;
@@ -250,58 +250,57 @@ h4 {
 /* For tablets (<=1024px) */
 @media (max-width: 1024px) {
   .stage {
-    top: 30px;
-    left: 40px;
+    top: 70px;
+    left: 25px;
   }
   .layer::after {
     font-size: 55px;
   }
-  .container {
-    width: 60vw;
-  }
+  
 }
 
 /* For large phones (<=768px) */
 @media (max-width: 768px) {
   .stage {
-    top: 25px;
-    left: 30px;
-    transform: scale(0.9);
+    bottom: 300px;
+    left: 50px;
+    transform: scale(1.2);
   }
   .layer::after {
-    font-size: 45px;
-    letter-spacing: -1.5px;
+    letter-spacing: 1.5px;
+    font-size: 40px;
+
   }
   .container {
     background-color: none;
-    width: 80vw;
+    width: 100%;
     padding: 10px;
     margin-top:60px;
+    
   }
-  h3 { font-size: 20px; }
-  h4 { font-size: 16px; }
+  h3 { font-size: 10px; }
+  h4 { font-size: 10px; }
 }
 
 /* For small phones (<=480px) */
 @media (max-width: 480px) {
  
   .stage {
-    top: 10px;
-    left: 10px;
-    transform: scale(0.8);
+    top: 60px;
+    left: 40px;
+    transform: scale(1);
   }
   .layer::after {
-    font-size: 20px;
+    font-size: 25px;
     letter-spacing: -1px;
   }
   .container {
     background-color: none;
-    margin-top:10px;
-    width: 60vw;
-    height: auto; /* Adjust height to auto for better content fit */
+    margin-top:50px;
+    width:500px;
     padding: 20px;
   }
-  h3 { font-size: 18px; }
+  h3 { font-size: 15px; }
   h4 { font-size: 15px; }
 
 }
